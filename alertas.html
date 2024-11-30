@@ -6,44 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DizAlaga - Alertas </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="alertas.css" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-
             <a class="navbar-brand" href="index.html">
                 <img src="Logo.png" alt="DizAlaga Logo">
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
-
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="alertas.html">Alertas</a></li>
                     <li class="nav-item"><a class="nav-link" href="informacoes.html">Informações</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
                 </ul>
-                
             </div>
-
         </div>
     </nav>
 
     <div class="container mt-5">
-        <h1>Alertas</h1>
-        <p>Esta página mostra Alertas ...</p>
+        <h1 class="mb-4">Alertas</h1>
+
+        <div class="alert-card">
+            <img src="alert1.jpg" alt="Alagamento Imagem">
+            <div class="alert-content">
+                <div class="alert-title">Alagamento em X</div>
+                <div class="alert-description">Rua X está completamente inundada. Evite a área até segunda ordem.</div>
+                <div class="alert-time">Publicado: xx/xx/2024, xx:xx</div>
+            </div>
+        </div>
+
+        <div class="alert-card">
+            <img src="alert2.jpg" alt="Alagamento Imagem">
+            <div class="alert-content">
+                <div class="alert-title">Enchente em Y</div>
+                <div class="alert-description">Avenida Y enfrenta níveis críticos de água. Trânsito está interditado.</div>
+                <div class="alert-time">Publicado: xx/xx/2024, xx:xx</div>
+            </div>
+        </div>
+
+        <div class="alert-card">
+            <img src="alert3.jpg" alt="Alagamento Imagem">
+            <div class="alert-content">
+                <div class="alert-title">Aviso de Z</div>
+                <div class="alert-description">Fortes chuvas esperadas na região. Monitoramento constante recomendado.</div>
+                <div class="alert-time">Publicado: zz/zz/2024, zz:zz</div>
+            </div>
+        </div>
     </div>
 
-    
+    <button id="reportButton" class="report-button">Reportar!</button>
+
     <footer class="text-center mt-5">
         <p>CodeStorm</p>
     </footer>
 
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
