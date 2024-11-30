@@ -83,3 +83,20 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+// Rota para buscar os registros mais recentes
+app.get("/latest-reports", (req, res) => {
+    const query = `
+        SELECT id, address, description, status, created_at 
+        FROM reports 
+        ORDER BY created_at DESC 
+        LIMIT 3`; // Limitar a quantidade de registros retornados
+
+    db.all(query, [], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+
+        res.json(rows);
+    });
+});
