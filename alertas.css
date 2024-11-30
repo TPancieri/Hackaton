@@ -189,3 +189,18 @@ h1{
 .load-more-img:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4)
 }
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 15px 0;
+}
+
+.foot-line {
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
