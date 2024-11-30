@@ -66,7 +66,7 @@
         
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="slide1.jpg" class="d-block w-100" alt="Slide 1">
+                <img src="slide1.png" class="d-block w-100" alt="Slide 1">
             </div>
             <div class="carousel-item">
                 <img src="slide2.jpg" class="d-block w-100" alt="Slide 2">
@@ -118,20 +118,23 @@
                 <button class="report-button btn btn-primary mt-3" id="reportButton">Reportar!</button>
             </div>
     
-            <!-- Conteudo da Direita -->
-            <div class="col-md-4">
+             <!-- Conteudo da Direita -->
+             <div class="col-md-4">
                 <div class="d-flex flex-column gap-3">
                     <div class="alert alert-primary text-center">
-                        <h5>Alerta 1</h5>
-                        <p>Chuva forte prevista para sua região nas próximas horas.</p>
+                        <h5>Alagamento no Setor Central</h5>
+                        <p>Chuvas intensas causaram alagamento no Setor Central, 
+                            dificultando o trânsito e colocando pedestres em risco. Evite a área.</p>
                     </div>
                     <div class="alert alert-warning text-center">
-                        <h5>Alerta 2</h5>
-                        <p>Ruas inundadas no centro da cidade. Evite a área.</p>
+                        <h5>Aviso de Fortes Chuvas para Goiânia</h5>
+                        <p>Previsão de chuvas fortes nas próximas 24 horas. 
+                            Evite áreas propensas a enchentes e enxurradas.</p>
                     </div>
                     <div class="alert alert-danger text-center">
-                        <h5>Alerta 3</h5>
-                        <p>Emergência: nível do rio subiu acima do esperado!</p>
+                        <h5>Inundação em Bairro das Flores</h5>
+                        <p>Água invadiu casas após rompimento de um canal de escoamento. 
+                            Equipes de resgate estão no local.</p>
                     </div>
                 </div>
             </div>
@@ -142,39 +145,52 @@
             <section class="info-section mb-3">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h2>Noticia 1</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                       <a href="https://www.maisgoias.com.br/brasil/mais-de-30-areas-de-risco-e-varios-pontos-de-alagamento-sao-monitorados-em-goiania/
+                       #:~:text=Entre%20os%20pontos%20de%20alagamentos,Jardim%20Mirabel%20e%20Goi%C3%A2nia%20Viva"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       <h2>Mais de 30 áreas de risco e 94 pontos de alagamento</h2></a>
+                        <p>Mais de 30 áreas de riscos e 94 pontos de alagamento são monitorados pela Defesa Civil na capital. 
+                            A maior parte fica na região Central da cidade.</p>
                     </div>
                     <div class="col-md-6 text-center">
-                        <img src="top1.jpg" alt="Imagem-Noticia-1" class="img-fluid rounded">
+                        <img src="indexnews1.jpg" alt="Imagem-Noticia-1" class="img-fluid rounded">
                     </div>
                 </div>
             </section>
             <section class="info-section mb-3">
                 <div class="row align-items-center flex-md-row-reverse">
                     <div class="col-md-6">
-                        <h2>Noticia 2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="https://globoplay.globo.com/v/13056256/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <h2>Coordenador da Casa Civil: "As ruas da capital não são mais seguras"</h2></a>
+                        <p>Alta quantidade de área de risco cidade</p>
                     </div>
                     <div class="col-md-6 text-center">
-                        <img src="top2.jpg" alt="Imagem-Noticia-2" class="img-fluid rounded">
+                        <img src="indexnews2.jpeg" alt="Imagem-Noticia-2" class="img-fluid rounded">
                     </div>
                 </div>
             </section>
             <section class="info-section mb-3">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h2>Noticia 3</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="https://zerooudez.com.br/2024/10/31/preocupante-surgem-novos-pontos-de-alagamento-em-goiania/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                            <h2>Aumento nos pontos de alagamento</h2></a>
+                        <p>Goiânia, ao longo de seus 91 anos, carrega consigo a problemática histórica dos alagamentos, 
+                            consequência da falta de investimentos em obras de drenagem. </p>
                     </div>
                     <div class="col-md-6 text-center">
-                        <img src="top3.jpg" alt="Imagem-Noticia-3" class="img-fluid rounded">
+                        <img src="indexnews3.jpg" alt="Imagem-Noticia-3" class="img-fluid rounded">
                     </div>
                 </div>
             </section>
         </div>
     </div>
 
+    <!-- Janela Pop-Up Para Reportar -->
     <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -257,19 +273,15 @@
                 <div class="col-md-6 text-end">
 
                     <a href="#" target="_blank" class="text-decoration-none text-dark me-3">
-                        <i class="fa-solid fa-users"></i> Comunidade 1
-                    </a>
-                    <a href="#" target="_blank" class="text-decoration-none text-dark me-3">
-                        <i class="fa-solid fa-users"></i> Comunidade 2
-                    </a>
-                    <a href="#" target="_blank" class="text-decoration-none text-dark">
-                        <i class="fa-solid fa-users"></i> Comunidade 3
+                        <i class="fa-solid fa-users"></i>
                     </a>
                 </div>
             </div>
             <p class="text-center mt-3 mb-0 text-muted">Equipe CodeStorm</p>
         </div>
-    </footer><script>
+    </footer>
+    
+    <script>
         (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r, "places"]);for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
             key: "AIzaSyAJOLih2jtIK-z3PbhUWMUy5vhpp_-N9aY",
             v: "weekly",
