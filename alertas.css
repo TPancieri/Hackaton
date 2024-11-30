@@ -110,7 +110,7 @@ h1{
 /* Botão para Reportar Alagamento */
 .report-button {
     position: absolute;
-    bottom: -140px;
+    bottom: -210px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
