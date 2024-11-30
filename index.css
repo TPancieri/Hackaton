@@ -110,7 +110,7 @@ input:-webkit-autofill {
 /* Carrossel*/
 .carousel-inner img {
     width: 600px; /* Set the width to 600px */
-    height: 250px; /* Set the height to 150px */
+    height: 400px; /* Set the height to 150px */
     object-fit: cover; /* Ensures the image fits within the dimensions */
     margin: 0 auto; /* Center the images horizontally */
 }
@@ -142,7 +142,7 @@ footer {
 /* Botão para Reportar Alagamento */
 .report-button {
     position: absolute;
-    bottom: -190px;
+    bottom: -67px;
     left: 37%;
     transform: translateX(-50%);
     z-index: 10;
