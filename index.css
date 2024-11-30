@@ -50,28 +50,45 @@ body {
     position: relative;
 }
 
-/* Imagem com Fade-out */
-.fade-out-image {
-    position: relative;
-    display: inline-block;
+
+/* Estilo Geral da Div */
+.input-map input {
+    width: 100%; /* Alinha com o mapa */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+/* Placeholder no Foco */
+.input-map input:focus::placeholder {
+    color: transparent;
 }
 
-.fade-out-image img {
-    display: block;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.input-map {
+    width: 75%; /* Largura padrão para computadores */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-.fade-out-image::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 100%);
-    pointer-events: none;
+/* Estilo para dispositivos móveis */
+@media (max-width: 768px) {
+    .input-map {
+        width: 100%; /* Largura total para telas pequenas */
+    }
+}
+
+input:-webkit-autofill {
+    background-color: transparent !important;
+  }
+
+/* Estilo do Mapa */
+#map {
+    width: 100%; /* Mesma largura do input */
+    height: 400px; /* Altura fixa */
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Efeito de sombra */
 }
 
 /* Carrossel */
