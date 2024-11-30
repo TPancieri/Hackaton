@@ -4,68 +4,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DizAlaga - Sobre</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sobre - DizAlaga</title>
+
+    <!-- Stylesheets Externos-->
+     <!--Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- CSS-->
     <link href="sobre.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="Logo.png" alt="DizAlaga Logo">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="Logo.png" alt="DizAlaga Logo" class="me-2" style="height: 40px;">
+                <span>DizAlaga</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="alertas.html">Alertas</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sobre.html">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="informacoes.html">Informações</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1 class="mb-4">Sobre Nós</h1>
-                <p>
-                    DizAlaga é uma plataforma dedicada a ajudar comunidades a se manterem informadas sobre alagamentos 
-                    em tempo real. Nosso time está comprometido em fornecer dados confiáveis e ferramentas para melhorar
-                     a segurança e tomada de decisão em situações críticas.
-                </p>
-                <p>
-                    (algo sobre a equipe...).
-                </p>
+    <!-- Conteudo Principal -->
+    <main>
+        <!-- Texto Informativo e Foto da Equipe -->
+        <div class="container mt-5">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="mb-4">Sobre Nós</h1>
+                    <p>
+                        DizAlaga é uma plataforma dedicada a ajudar comunidades a se manterem informadas sobre alagamentos 
+                        em tempo real. Nosso time está comprometido em fornecer dados confiáveis e ferramentas para melhorar
+                         a segurança e tomada de decisão em situações críticas.
+                    </p>
+                    <p>
+                        (algo sobre a equipe...).
+                    </p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="team-photo.jpg" alt="Foto da Equipe" class="img-fluid rounded shadow">
+                </div>
             </div>
-            <div class="col-md-6 text-center">
-                <img src="team-photo.jpg" alt="Foto da Equipe" class="img-fluid rounded shadow">
-            </div>
-        </div>
+        <!-- Call to Action -->
+        <section class="bg-light p-4 rounded shadow mt-5 text-center">
+            <h2 class="mb-3 text-primary">Ajude o DizAlaga!</h2>
+            <p>
+                Quer fazer parte da nossa comunidade e ajudar a transformar a forma como lidamos com alagamentos? Cadastre-se agora e receba atualizações, relatórios e informações diretamente no seu e-mail!
+            </p>
+            <button id="registerButton" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#registerModal">
+                Cadastre-se!
+            </button>
+        </section>
+    </main>
 
-        <div class="mt-5 text-center">
-            <h2>Ajude a DizAlaga!</h2>
-            <form class="form-inline d-flex flex-column align-items-center">
-                <div class="mb-3 w-50">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
-                </div>
-                <div class="mb-3 w-50">
-                    <label for="name" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="name" placeholder="Digite seu nome">
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+    <!-- Formulario de Registro -->
+    <div id="registerModal" class="modal fade" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Header de Registro -->
+                <header class="modal-header">
+                    <h2 id="registerModalLabel" class="modal-title">Cadastro</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </header>
+
+                <!-- Corpo do Registro -->
+                <section class="modal-body">
+                    <form id="registerForm" class="form">
+
+                        <!-- Campo de Nome -->
+                        <div class="form-group mb-3">
+                            <label for="name" class="form-label">Nome</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                class="form-control" 
+                                placeholder="Digite seu nome completo" 
+                                required>
+                        </div>
+
+                        <!-- Campo de Email -->
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-control" 
+                                placeholder="Digite seu e-mail" 
+                                required>
+                        </div>
+
+                        <!-- Campo de Telefone -->
+                        <div class="form-group mb-3">
+                            <label for="phone" class="form-label">Celular</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                class="form-control" 
+                                placeholder="Ex.: (11) 98765-4321" 
+                                required>
+                        </div>
+
+                        <!-- Botão de Envio do Cadastro/ Registro -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary w-100">
+                                Enviar Cadastro
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
 
-    <footer class="text-center mt-5">
-        <p>CodeStorm</p>
+    <!-- Mensagem de Cadastro -->
+    <div id="successMessage" class="success-message">
+        Cadastro efetuado com sucesso!
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-3 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-muted">Equipe CodeStorm</p>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Esconde o Pop-Up
+            const modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+            modal.hide();
+
+            // Mostra mensagem de sucesso de cadastro
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+
+            // Esconde a Mensagem depois de 3 segundos
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+
+            // Limpa o Formulario
+            this.reset();
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
