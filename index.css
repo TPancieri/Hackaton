@@ -1,26 +1,56 @@
+/* Geral*/
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f9fafb;
+    color: #222;
+    margin: 0;
+    padding: 0;
 }
 
+/* Barra de Navegação */
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0056b3;
+}
+
+/* Efeito de Hover na Barra de Navegação*/
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #0056b3;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Conteudo Principal*/
 .centered-content {
     text-align: center;
     margin-top: 50px;
     position: relative;
 }
 
-.navbar-brand img {
-    height: 40px;
-}
-
-footer {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #666;
-}
-
+/* Imagem com Fade-out */
 .fade-out-image {
     position: relative;
     display: inline-block;
@@ -29,6 +59,8 @@ footer {
 .fade-out-image img {
     display: block;
     width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .fade-out-image::after {
@@ -42,43 +74,59 @@ footer {
     pointer-events: none;
 }
 
+/* Carrossel */
 .carousel-heading {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin: 20px 0 40px;
+    color: #0056b3;
 }
 
+/* Seção de Explicação ou e Informações? */
 .additional-section {
     text-align: left;
     margin: 50px auto;
     max-width: 700px;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 15px 0;
 }
 
 .foot-line {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ddd;
     margin-top: 30px;
 }
 
+/* Botão para Reportar Alagamento */
 .report-button {
     position: absolute;
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
-    background-color: #63acfc;
+    background-color: #007bff;
     border: none;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: pointer;
 }
 
 .report-button:hover {
-    background-color: #bcdaff;
+    background-color: #0056b3;
+    transform: translateX(-50%) scale(1.05);
 }
