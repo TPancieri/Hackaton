@@ -3,6 +3,7 @@ let autocomplete;
 let marker = null; // Variável para armazenar o marcador único
 let position = { lat: -16.68486087813813, lng: -49.27944418992962 }; // Localização inicial
 let address = "Carregando endereço..."; // Endereço inicial
+let reportMarkers = []; // Lista para armazenar os marcadores de reportes salvos
 
 // Inicializar o mapa e o autocomplete
 async function initMap() {
@@ -27,11 +28,54 @@ async function initMap() {
     types: ["geocode"],
   });
 
+  // Carregar reportes existentes
+  await loadReports();
+
   // Adicionar listeners
   addMapClickListener();
   addAutocompleteListener(autocomplete);
   addReportButtonListener();
 }
+
+// Carregar os reportes existentes do backend e adicionar no mapa
+async function loadReports() {
+  try {
+    const response = await fetch("http://localhost:3000/reports");
+    if (!response.ok) {
+      console.error("Erro ao carregar reportes:", response.statusText);
+      return;
+    }
+
+    const reports = await response.json();
+
+    // Remover marcadores antigos, se existirem
+    reportMarkers.forEach((marker) => marker.setMap(null));
+    reportMarkers = [];
+
+    // Adicionar marcadores para cada reporte
+    reports.forEach((report) => {
+      const reportMarker = new google.maps.Marker({
+        position: { lat: report.latitude, lng: report.longitude },
+        map: map,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 10, // Aumentar o tamanho do ponto
+          fillColor: "orange",
+          fillOpacity: 0.6, // Tornar o ponto levemente opaco
+          strokeWeight: 0, // Sem borda
+        },
+        title: `Reporte: ${report.description}`,
+      });
+
+      reportMarkers.push(reportMarker);
+    });
+
+    console.log("Reportes carregados e adicionados no mapa:", reports);
+  } catch (error) {
+    console.error("Erro ao buscar os reportes do servidor:", error);
+  }
+}
+
 
 // Atualizar a posição global, endereço, centralizar o mapa e mover o marcador
 async function updatePosition(newPosition) {
@@ -66,24 +110,37 @@ function updateCurrentLocationInput() {
 async function updateAddressInput() {
   const geocoder = new google.maps.Geocoder();
   const initialLocationInput = document.getElementById("initialLocation");
+  const inputMap = document.getElementById("input-map"); // Referência ao campo input-map
 
   try {
     const response = await geocoder.geocode({ location: position });
     if (response.results && response.results[0]) {
       address = response.results[0].formatted_address.replace(/^[A-Z0-9\+]+\s/, ""); // Atualizar endereço
 
+      // Atualizar o campo de endereço no formulário
+      if (inputMap) {
+        inputMap.value = address; // Preencher o campo input-map com o endereço
+      }
+
       if (initialLocationInput) {
-        initialLocationInput.value = address;
+        initialLocationInput.value = address; // Atualizar o campo inicialLocation também
       }
 
       console.log(`Endereço atualizado: ${address}`);
     } else {
       console.warn("Nenhum endereço encontrado para a posição atual.");
+      // Preencher campos com valor padrão
+      if (inputMap) inputMap.value = "Endereço não encontrado";
+      if (initialLocationInput) initialLocationInput.value = "Endereço não encontrado";
     }
   } catch (error) {
     console.error("Erro ao buscar o endereço:", error);
+    // Preencher campos com mensagem de erro
+    if (inputMap) inputMap.value = "Erro ao buscar endereço";
+    if (initialLocationInput) initialLocationInput.value = "Erro ao buscar endereço";
   }
 }
+
 
 // Adicionar listener de clique no mapa
 function addMapClickListener() {
@@ -121,8 +178,9 @@ function addReportButtonListener() {
   if (reportButton) {
     // Abrir o modal ao clicar no botão
     reportButton.addEventListener("click", async () => {
-      if (!position) {
-        alert("Por favor, selecione uma localização no mapa antes de continuar.");
+      // Verificar se o marcador está posicionado
+      if (!marker || !marker.getPosition()) {
+        alert("Por favor, posicione um marcador no mapa antes de continuar.");
         return;
       }
 
@@ -161,6 +219,9 @@ function addReportButtonListener() {
           alert("Reporte criado com sucesso! ID: " + data.id);
           reportModal.hide();
           reportForm.reset();
+
+          // Recarregar os marcadores no mapa
+          await loadReports();
         } else {
           alert("Erro ao criar o reporte. Tente novamente.");
         }
@@ -174,5 +235,42 @@ function addReportButtonListener() {
   }
 }
 
-// Inicializar a aplicação
-initMap();
+// Função para carregar os últimos reports e atualizá-los na interface
+async function loadLatestReports() {
+  try {
+    const response = await fetch("http://localhost:3000/latest-reports");
+    if (!response.ok) {
+      console.error("Erro ao carregar os últimos reportes:", response.statusText);
+      return;
+    }
+
+    const reports = await response.json();
+
+    // Selecionar o container de alertas
+    const alertsContainer = document.querySelector(".d-flex.flex-column.gap-3");
+
+    // Limpar alertas antigos
+    alertsContainer.innerHTML = "";
+
+    // Criar alertas para os registros recebidos
+    reports.forEach((report) => {
+      const alertDiv = document.createElement("div");
+      alertDiv.className = `alert alert-${
+        report.status === "pendente" ? "warning" : "primary"
+      } text-center`;
+
+      alertDiv.innerHTML = `
+        <h5>${report.address || "Local não especificado"}</h5>
+        <p>${report.description}</p>
+        <small>Registrado em: ${new Date(report.created_at).toLocaleString()}</small>
+      `;
+
+      alertsContainer.appendChild(alertDiv);
+    });
+  } catch (error) {
+    console.error("Erro ao buscar os últimos reportes:", error);
+  }
+}
+
+// Chamar a função ao inicializar o mapa
+initMap().then(() => loadLatestReports());
