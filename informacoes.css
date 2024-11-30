@@ -1,38 +1,126 @@
+/* Geral*/
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #f9fafb;
+    color: #222;
+    margin: 0;
+    padding: 0;
 }
 
+/* Barra de Navegação */
 .navbar-brand img {
     height: 40px;
 }
 
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0056b3;
+}
+
+/* Efeito de Hover na Barra de Navegação*/
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #0056b3;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Headings */
 h1 {
     font-weight: 700;
     color: #0056b3;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 h2 {
     font-weight: 600;
     color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+    display: inline-block;
 }
 
+/* Paragrafos */
 p {
-    line-height: 1.6;
+    line-height: 1.8;
     color: #555;
+    margin-bottom: 20px;
 }
 
+/* Imagem*/
 .info-section img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.info-section img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
 footer {
     margin-top: 50px;
     font-size: 0.9em;
     color: #777;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
 }
+
+/* Seção Informação */
+.info-section {
+    margin: 40px auto;
+    padding: 0 20px;
+    max-width: 800px;
+}
+
+.info-section h2 {
+    margin-top: 40px;
+}
+
+.info-section p {
+    margin-bottom: 30px;
+}
+
+/* Efeito de Hover na Barra de Navegação*/
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #0056b3;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
