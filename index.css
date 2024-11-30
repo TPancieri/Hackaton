@@ -12,6 +12,10 @@ h1, h2 {
     color: #0056b3;
 }
 
+p{
+    text-align: justify;
+}
+
 .center-content {
     display: flex;
     justify-content: center;
@@ -138,7 +142,7 @@ footer {
 /* Botão para Reportar Alagamento */
 .report-button {
     position: absolute;
-    bottom: -100px;
+    bottom: -190px;
     left: 37%;
     transform: translateX(-50%);
     z-index: 10;
