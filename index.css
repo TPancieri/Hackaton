@@ -7,6 +7,19 @@ body {
     padding: 0;
 }
 
+h1, h2 {
+    font-weight: 700;
+    color: #0056b3;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
 /* Barra de Navegação */
 .navbar-brand img {
     height: 40px;
@@ -50,7 +63,6 @@ body {
     position: relative;
 }
 
-
 /* Estilo Geral da Div */
 .input-map input {
     width: 100%; /* Alinha com o mapa */
@@ -91,13 +103,12 @@ input:-webkit-autofill {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Efeito de sombra */
 }
 
-/* Carrossel */
-.carousel-heading {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 20px 0 40px;
-    color: #0056b3;
+/* Carrossel*/
+.carousel-inner img {
+    width: 600px; /* Set the width to 600px */
+    height: 250px; /* Set the height to 150px */
+    object-fit: cover; /* Ensures the image fits within the dimensions */
+    margin: 0 auto; /* Center the images horizontally */
 }
 
 /* Seção de Explicação ou e Informações? */
@@ -127,8 +138,8 @@ footer {
 /* Botão para Reportar Alagamento */
 .report-button {
     position: absolute;
-    bottom: -20px;
-    left: 50%;
+    bottom: -100px;
+    left: 37%;
     transform: translateX(-50%);
     z-index: 10;
     padding: 12px 25px;
@@ -146,4 +157,56 @@ footer {
 .report-button:hover {
     background-color: #0056b3;
     transform: translateX(-50%) scale(1.05);
+}
+
+/* Janela de Report */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+#reportForm .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+#reportForm .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Mensagem de Confirmação de Report */
+.success-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    display: none;
+    z-index: 1050;
+}
+
+.alert {
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow effect */
+}
+
+.alert:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
